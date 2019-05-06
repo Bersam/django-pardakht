@@ -21,7 +21,7 @@ def redirect_url(payment):
 
 
 def redirect_data(request: HttpRequest, payment):
-    s = str(request.build_absolute_uri(reverse('pardakht:callback_url', args=[payment.slug, name])))
+    s = str(request.build_absolute_uri(reverse('pardakht:callback_url', args=[payment.slug, name]))).replace('http://', 'https://')
     return {
         'Token': payment.token,
         'RedirectURL': s

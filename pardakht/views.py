@@ -12,8 +12,7 @@ import logging
 
 @login_required
 def go_login(request):
-    return redirect(request.build_absolute_uri())
-
+    return redirect(str(request.build_absolute_uri()).replace('http://', 'https://'))
 
 @payment_exists
 @payment_not_started
